@@ -1,0 +1,273 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    overflow-y: scroll;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: rgb(249, 250, 251); /* gray-50 */
+    color: rgb(17, 24, 39); /* gray-900 */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .dark body {
+    background-color: rgb(17, 24, 39); /* gray-900 */
+    color: rgb(243, 244, 246); /* gray-100 */
+  }
+
+  /* Smooth scrolling */
+  * {
+    scroll-behavior: smooth;
+  }
+
+  /* Better focus visibility */
+  *:focus-visible {
+    outline: 2px solid theme('colors.blue.500');
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  /* Custom scrollbar styling for better UX */
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: rgba(243, 244, 246, 0.5);
+    border-radius: 10px;
+    backdrop-filter: blur(4px);
+  }
+
+  .dark *::-webkit-scrollbar-track {
+    background: rgba(31, 41, 55, 0.5);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, 
+      rgba(156, 163, 175, 0.4), 
+      rgba(156, 163, 175, 0.6));
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    transition: all 0.2s ease;
+  }
+
+  .dark *::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, 
+      rgba(75, 85, 99, 0.5), 
+      rgba(107, 114, 128, 0.7));
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, 
+      rgba(107, 114, 128, 0.5), 
+      rgba(107, 114, 128, 0.7));
+    background-clip: padding-box;
+  }
+
+  .dark *::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, 
+      rgba(107, 114, 128, 0.6), 
+      rgba(156, 163, 175, 0.8));
+  }
+
+  *::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  /* JSON Syntax Highlighting */
+  .json-key {
+    color: #0ea5e9; /* sky-500 */
+    font-weight: 500;
+  }
+
+  .dark .json-key {
+    color: #38bdf8; /* sky-400 */
+  }
+
+  .json-string {
+    color: #10b981; /* emerald-500 */
+  }
+
+  .dark .json-string {
+    color: #34d399; /* emerald-400 */
+  }
+
+  .json-number {
+    color: #f59e0b; /* amber-500 */
+    font-weight: 500;
+  }
+
+  .dark .json-number {
+    color: #fbbf24; /* amber-400 */
+  }
+
+  .json-boolean {
+    color: #8b5cf6; /* violet-500 */
+    font-weight: 500;
+  }
+
+  .dark .json-boolean {
+    color: #a78bfa; /* violet-400 */
+  }
+
+  .json-null {
+    color: #ef4444; /* red-500 */
+    font-weight: 500;
+  }
+
+  .dark .json-null {
+    color: #f87171; /* red-400 */
+  }
+
+  .json-punctuation {
+    color: #64748b; /* slate-500 */
+  }
+
+  .dark .json-punctuation {
+    color: #94a3b8; /* slate-400 */
+  }
+
+  .json-brace {
+    color: #6366f1; /* indigo-500 */
+    font-weight: 600;
+  }
+
+  .dark .json-brace {
+    color: #818cf8; /* indigo-400 */
+  }
+
+  .json-bracket {
+    color: #6366f1; /* indigo-500 */
+    font-weight: 600;
+  }
+
+  .dark .json-bracket {
+    color: #818cf8; /* indigo-400 */
+  }
+
+  /* Hide scrollbars for JSON input container, textarea, and line numbers */
+  .json-scroll-container::-webkit-scrollbar,
+  #json-input::-webkit-scrollbar,
+  .json-line-numbers::-webkit-scrollbar,
+  .json-highlight-overlay::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* TOON Syntax Highlighting */
+  .toon-key {
+    color: #0ea5e9; /* sky-500 */
+    font-weight: 500;
+  }
+
+  .dark .toon-key {
+    color: #38bdf8; /* sky-400 */
+  }
+
+  .toon-column-header {
+    color: #8b5cf6; /* violet-500 */
+    font-weight: 600;
+  }
+
+  .dark .toon-column-header {
+    color: #a78bfa; /* violet-400 */
+  }
+
+  .toon-array-decl {
+    color: #6366f1; /* indigo-500 */
+    font-weight: 600;
+  }
+
+  .dark .toon-array-decl {
+    color: #818cf8; /* indigo-400 */
+  }
+
+  .toon-string {
+    color: #10b981; /* emerald-500 */
+  }
+
+  .dark .toon-string {
+    color: #34d399; /* emerald-400 */
+  }
+
+  .toon-number {
+    color: #f59e0b; /* amber-500 */
+    font-weight: 500;
+  }
+
+  .dark .toon-number {
+    color: #fbbf24; /* amber-400 */
+  }
+
+  .toon-boolean {
+    color: #8b5cf6; /* violet-500 */
+    font-weight: 500;
+  }
+
+  .dark .toon-boolean {
+    color: #a78bfa; /* violet-400 */
+  }
+
+  .toon-null {
+    color: #ef4444; /* red-500 */
+    font-weight: 500;
+  }
+
+  .dark .toon-null {
+    color: #f87171; /* red-400 */
+  }
+
+  .toon-brace {
+    color: #6366f1; /* indigo-500 */
+    font-weight: 600;
+  }
+
+  .dark .toon-brace {
+    color: #818cf8; /* indigo-400 */
+  }
+
+  .toon-bracket {
+    color: #6366f1; /* indigo-500 */
+    font-weight: 600;
+  }
+
+  .dark .toon-bracket {
+    color: #818cf8; /* indigo-400 */
+  }
+
+  .toon-colon {
+    color: #64748b; /* slate-500 */
+  }
+
+  .dark .toon-colon {
+    color: #94a3b8; /* slate-400 */
+  }
+
+  .toon-comma {
+    color: #64748b; /* slate-500 */
+  }
+
+  .dark .toon-comma {
+    color: #94a3b8; /* slate-400 */
+  }
+
+  .toon-semicolon {
+    color: #8b5cf6; /* violet-500 */
+    font-weight: 600;
+  }
+
+  .dark .toon-semicolon {
+    color: #a78bfa; /* violet-400 */
+  }
+}
+
